@@ -1,0 +1,12 @@
+name: build
+on:
+  push:
+  pull_request:
+
+jobs:
+  linux:
+    name: build
+    runs-on: ubuntu-latest
+    steps:
+      - name: Install Go
+        uses: actions/setup-go@v5
