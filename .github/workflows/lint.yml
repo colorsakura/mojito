@@ -1,0 +1,24 @@
+name: lint
+on:
+  push:
+  pull_request:
+
+permissions:
+  contents: read
+  pull-requests: read
+
+jobs:
+  golangci:
+    name: lint
+    runs-on: ubuntu-latest
+    steps:
+      - name: Install Packages
+        run: sudo apt-get install libmpv-dev -y
+
+      - name: Install Go
+        uses: actions/setup-go@v5
+
+      - uses: actions/checkout@v4
+
+      - name: Go Lint
+        uses: golangci/golangci-lint-action@v6
